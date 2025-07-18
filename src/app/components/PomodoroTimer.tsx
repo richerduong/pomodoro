@@ -12,9 +12,9 @@ interface PomodoroState {
 }
 
 const POMODORO_TIMES = {
-  work: 25 * 60, // 25 minutes
-  shortBreak: 5 * 60, // 5 minutes
-  longBreak: 15 * 60, // 15 minutes
+  work: 25 * 60, // 25 min
+  shortBreak: 5 * 60, // 5 min
+  longBreak: 15 * 60, // 15 min
 };
 
 export default function PomodoroTimer() {
