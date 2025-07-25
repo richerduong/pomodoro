@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { TimerMode } from '@/lib/theme';
 import { TimerSettings } from '@/lib/types';
 import { Settings as SettingsIcon, SkipForward } from 'lucide-react';
@@ -27,11 +27,11 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
     longBreakInterval: 4,
   });
 
-  const timerDurations = {
+  const timerDurations = useMemo(() => ({
     pomodoro: settings.pomodoroTime * 60,
     shortBreak: settings.shortBreakTime * 60,
     longBreak: settings.longBreakTime * 60,
-  };
+  }), [settings]);
 
   const modeLabels = {
     pomodoro: 'Pomodoro',
