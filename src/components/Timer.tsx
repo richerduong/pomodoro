@@ -12,7 +12,7 @@ interface TimerProps {
 
 const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
   const [mode, setMode] = useState<TimerMode>('pomodoro');
-  const [timeLeft, setTimeLeft] = useState(25 * 60); // Start with Pomodoro time
+  const [timeLeft, setTimeLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [completedPomodoros, setCompletedPomodoros] = useState(0);
