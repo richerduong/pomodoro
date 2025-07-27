@@ -39,7 +39,6 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
     longBreak: 'Long Break',
   };
 
-  // Update time when settings change
   useEffect(() => {
     if (!isRunning) {
       setTimeLeft(timerDurations[mode]);
@@ -77,7 +76,6 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
       const newCount = completedPomodoros + 1;
       setCompletedPomodoros(newCount);
       
-      // Auto-switch to break if enabled
       if (settings.autoStartBreaks) {
         const shouldTakeLongBreak = newCount % settings.longBreakInterval === 0;
         const nextMode = shouldTakeLongBreak ? 'longBreak' : 'shortBreak';
@@ -87,7 +85,6 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
         }
       }
     } else {
-      // Auto-switch to pomodoro if enabled
       if (settings.autoStartPomodoros) {
         handleModeChange('pomodoro');
         setIsRunning(true);
