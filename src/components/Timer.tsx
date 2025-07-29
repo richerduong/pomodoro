@@ -180,7 +180,7 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
             {timeLeft === 0 ? (
               <span className="text-pink-300 font-semibold">Time&apos;s up! ✨</span>
             ) : isRunning ? (
-              <span className="text-green-300">Timer running... 💖</span>
+              <span className="text-green-300">Timer running...</span>
             ) : (
               <span>Timer paused</span>
             )}
