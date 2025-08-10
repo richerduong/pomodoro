@@ -12,7 +12,7 @@ interface TimerProps {
 
 const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
   const [mode, setMode] = useState<TimerMode>('pomodoro');
-  const [timeLeft, setTimeLeft] = useState(25 * 60); // Start with Pomodoro time
+  const [timeLeft, setTimeLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [completedPomodoros, setCompletedPomodoros] = useState(0);
@@ -39,7 +39,6 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
     longBreak: 'Long Break',
   };
 
-  // Update time when settings change
   useEffect(() => {
     if (!isRunning) {
       setTimeLeft(timerDurations[mode]);
@@ -77,7 +76,6 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
       const newCount = completedPomodoros + 1;
       setCompletedPomodoros(newCount);
       
-      // Auto-switch to break if enabled
       if (settings.autoStartBreaks) {
         const shouldTakeLongBreak = newCount % settings.longBreakInterval === 0;
         const nextMode = shouldTakeLongBreak ? 'longBreak' : 'shortBreak';
@@ -87,7 +85,6 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
         }
       }
     } else {
-      // Auto-switch to pomodoro if enabled
       if (settings.autoStartPomodoros) {
         handleModeChange('pomodoro');
         setIsRunning(true);
@@ -183,7 +180,7 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
             {timeLeft === 0 ? (
               <span className="text-pink-300 font-semibold">Time&apos;s up! ✨</span>
             ) : isRunning ? (
-              <span className="text-green-300">Timer running... 💖</span>
+              <span className="text-green-300">Timer running...</span>
             ) : (
               <span>Timer paused</span>
             )}
