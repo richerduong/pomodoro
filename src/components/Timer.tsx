@@ -129,9 +129,6 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
   return (
     <div className="w-full max-w-md text-center">
       
-      {/* Title */}
-      <h1 className="text-4xl font-bold text-black mb-8">Sanriodo</h1>
-      
       {/* Mode Selection Buttons */}
       <div className="flex gap-3 justify-center">
         <button
@@ -163,7 +160,7 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
       </div>
       
       {/* Timer Box - Only timer display */}
-      <div className="bg-black rounded-lg shadow-2xl p-8 border border-gray-800 mt-6 mb-6">
+      <div className="bg-white rounded-lg shadow-2xl p-8 mt-6 mb-6">
         <div className="text-center">
           {/* Current Mode Label */}
           <div className="text-pink-200 text-lg font-semibold mb-4">
@@ -171,7 +168,7 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
           </div>
           
           {/* Timer Display */}
-          <div className="text-6xl md:text-8xl font-mono font-bold text-white tracking-wider">
+          <div className="text-6xl md:text-8xl font-mono font-bold text-black tracking-wider">
             {formatTime(timeLeft)}
           </div>
 
