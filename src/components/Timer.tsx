@@ -133,34 +133,28 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
       <div className="flex gap-3 justify-center">
         <button
           onClick={() => handleModeChange('pomodoro')}
-          className={`px-6 h-12 rounded-lg font-semibold text-sm transition-all duration-200 bg-white text-black flex items-center justify-center ${
-            mode === 'pomodoro' ? 'shadow-lg' : 'hover:shadow-md'
-          }`}
+          className="px-6 h-12 rounded-lg font-semibold text-sm transition-all duration-200 bg-white text-black flex items-center justify-center border border-black cursor-pointer"
         >
           Pomodoro
         </button>
         
         <button
           onClick={() => handleModeChange('shortBreak')}
-          className={`px-6 h-12 rounded-lg font-semibold text-sm transition-all duration-200 bg-white text-black flex items-center justify-center ${
-            mode === 'shortBreak' ? 'shadow-lg' : 'hover:shadow-md'
-          }`}
+          className="px-6 h-12 rounded-lg font-semibold text-sm transition-all duration-200 bg-white text-black flex items-center justify-center border border-black cursor-pointer"
         >
           Short Break
         </button>
         
         <button
           onClick={() => handleModeChange('longBreak')}
-          className={`px-6 h-12 rounded-lg font-semibold text-sm transition-all duration-200 bg-white text-black flex items-center justify-center ${
-            mode === 'longBreak' ? 'shadow-lg' : 'hover:shadow-md'
-          }`}
+          className="px-6 h-12 rounded-lg font-semibold text-sm transition-all duration-200 bg-white text-black flex items-center justify-center border border-black cursor-pointer"
         >
           Long Break
         </button>
       </div>
       
       {/* Timer Box - Only timer display */}
-      <div className="bg-white rounded-lg shadow-2xl p-8 mt-6 mb-6">
+      <div className="bg-white rounded-lg border border-black p-8 mt-6 mb-6">
         <div className="text-center">
           {/* Current Mode Label */}
           <div className="text-pink-200 text-lg font-semibold mb-4">
@@ -179,7 +173,7 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
             ) : isRunning ? (
               <span className="text-green-300">Timer running...</span>
             ) : (
-              <span>Timer paused</span>
+              <span>Completed Pomodoros: {completedPomodoros}</span>
             )}
           </div>
         </div>
@@ -190,7 +184,7 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
         {/* Settings Button */}
         <button
           onClick={() => setShowSettings(true)}
-          className="w-12 h-12 rounded-lg bg-white text-black hover:shadow-md transition-all duration-200 flex items-center justify-center"
+          className="w-12 h-12 rounded-lg bg-white text-black transition-all duration-200 flex items-center justify-center border border-black cursor-pointer"
         >
           <SettingsIcon size={20} />
         </button>
@@ -198,7 +192,7 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
         {/* Start/Pause Button */}
         <button
           onClick={handleStartPause}
-          className="px-8 h-12 rounded-lg font-semibold text-lg bg-white text-black hover:shadow-md transition-all duration-200 flex items-center justify-center"
+          className="px-8 h-12 rounded-lg font-semibold text-lg bg-white text-black transition-all duration-200 flex items-center justify-center border border-black cursor-pointer"
         >
           {isRunning ? 'Pause' : 'Start'}
         </button>
@@ -206,16 +200,13 @@ const Timer: React.FC<TimerProps> = ({ onModeChange }) => {
         {/* Skip Button */}
         <button
           onClick={handleSkip}
-          className="w-12 h-12 rounded-lg bg-white text-black hover:shadow-md transition-all duration-200 flex items-center justify-center"
+          className="w-12 h-12 rounded-lg bg-white text-black transition-all duration-200 flex items-center justify-center border border-black cursor-pointer"
         >
           <SkipForward size={20} />
         </button>
       </div>
 
-      {/* Pomodoro Counter */}
-      <div className="text-black text-sm">
-        Completed Pomodoros: {completedPomodoros}
-      </div>
+
 
       {/* Settings Modal */}
       <Settings
